@@ -2,6 +2,8 @@
 
 API de backend para o sistema **Venda Truck Finance**, desenvolvida em Laravel. O sistema gerencia empresas, simulações de financiamento, clientes e usuários.
 
+![VendaTruck](https://vendatruck.com.br/wp-content/uploads/2023/01/logo-site-vetor.svg)
+
 ## 🚀 Tecnologias
 
 - **Framework:** Laravel 11.x
