@@ -1,59 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Venda Truck Finance API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+API de backend para o sistema **Venda Truck Finance**, desenvolvida em Laravel. O sistema gerencia empresas, simulações de financiamento, clientes e usuários.
 
-## About Laravel
+## 🚀 Tecnologias
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Framework:** Laravel 11.x
+- **Autenticação:** Laravel Sanctum
+- **Banco de Dados:** MySQL / PostgreSQL
+- **Ferramenta de API:** Postman / Insomnia
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📋 Módulos Principais
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🏢 Empresas (Companies)
+Gerenciamento de lojas e parceiros. Filtro de dados automático por `company_id`.
 
-## Learning Laravel
+### 📊 Simulações (Simulations)
+Módulo central para cálculos de financiamento e refinanciamento.
+- Armazena dados do veículo (placa, marca, valor).
+- Snapshots de parcelas (P24, P48, P60).
+- Vínculo com clientes e usuários.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 👤 Clientes (Customers)
+Cadastro completo de proponentes.
+- Vínculo automático à simulação via `simulation_id`.
+- Dados demográficos e financeiros.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🔐 Autenticação (Auth)
+- Login multiplataforma (Admin / Lojista).
+- Redefinição de senha via email.
+- Verificação de validade de token (`/verify-token`).
 
-## Laravel Sponsors
+## 🛠️ Configuração do Projeto
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1. Clone o repositório
+2. Instale as dependências:
+   ```bash
+   composer install
+   npm install
+   ```
+3. Configure o `.env`:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+4. Execute as migrations e seeders:
+   ```bash
+   php artisan migrate --seed
+   ```
+5. Inicie o servidor:
+   ```bash
+   php artisan serve
+   ```
 
-### Premium Partners
+## 📡 API Endpoints (v1)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Auth
+- `POST /login` - Autenticação
+- `GET /verify-token` - Validação de JWT
+- `POST /register` - Cadastro de usuários (Admin apenas)
+- `POST /logout` - Revogação de token
 
-## Contributing
+### Admin / Painel
+- `apiResource('companies', CompanyController)`
+- `apiResource('simulations', SimulationController)`
+- `apiResource('customers', CustomerController)`
+- `GET /simulation-statuses`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 📂 Estrutura de Banco de Dados
 
-## Code of Conduct
+- `users`: Usuários do sistema (admin, lojista).
+- `companies`: Empresas registradas.
+- `simulations`: Tabela principal de cálculos e propostas.
+- `customers`: Dados dos clientes.
+- `simulation_types`: Tipos (Financiamento, Refinanciamento).
+- `simulation_statuses`: Status (Simulado, Aprovado, Em Análise, etc).
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 📄 Coleção Postman
+O arquivo `venda-truck-companies.postman_collection.json` na raiz do projeto contém todas as requisições prontas para uso.
