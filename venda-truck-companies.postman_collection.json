@@ -849,6 +849,153 @@
                     }
                 ]
             }
+        },
+        {
+            "name": "Vehicle Consultation",
+            "item": [
+                {
+                    "name": "Check Vehicle Credits",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"tipo\": \"fipe-chassi\",\n    \"placa\": \"ABC1234\",\n    \"homolog\": true\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/vehicle/consult/credits",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "vehicle",
+                                "consult",
+                                "credits"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": [
+                    {
+                        "key": "token",
+                        "value": "{{token}}",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "CPF Consultation",
+            "item": [
+                {
+                    "name": "Check CPF Credits",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"cpf\": \"63166223096\",\n    \"tipo\": \"acerta-essencial\",\n    \"homolog\": true\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/cpf/consult/credits",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "cpf",
+                                "consult",
+                                "credits"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": [
+                    {
+                        "key": "token",
+                        "value": "{{token}}",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "CNPJ Consultation",
+            "item": [
+                {
+                    "name": "Check CNPJ Credits",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"cnpj\": \"44959669000180\",\n    \"tipo\": \"serasa-real-time\",\n    \"homolog\": true\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/cnpj/consult/credits",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "cnpj",
+                                "consult",
+                                "credits"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": [
+                    {
+                        "key": "token",
+                        "value": "{{token}}",
+                        "type": "string"
+                    }
+                ]
+            }
         }
     ],
     "variable": [

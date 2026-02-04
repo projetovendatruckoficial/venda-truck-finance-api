@@ -35,4 +35,11 @@ return [
         ],
     ],
 
+    'apibrasil' => [
+        'token' => env('API_BRASIL_TOKEN'),
+        'homolog' => env('API_BRASIL_HOMOLOG', true),
+    ],
+
+
+
 ];
