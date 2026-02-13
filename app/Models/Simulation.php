@@ -32,6 +32,7 @@ class Simulation extends Model
         'installments_count',
         'installment_value',
         'initial_document',
+        'simulation_details',
         'opt_in',
     ];
 
