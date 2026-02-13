@@ -54,7 +54,7 @@ class SimulationController extends Controller
             'p60' => 'required|numeric',
             'installments_count' => 'nullable|integer',
             'installment_value' => 'nullable|numeric',
-            'initial_cpf' => 'nullable|string|max:14',
+            'initial_document' => 'nullable|string|max:14',
         ]);
 
         $simulation = Simulation::create($validated);
@@ -98,7 +98,7 @@ class SimulationController extends Controller
             'p60' => 'sometimes|required|numeric',
             'installments_count' => 'sometimes|nullable|integer',
             'installment_value' => 'sometimes|nullable|numeric',
-            'initial_cpf' => 'sometimes|nullable|string|max:14',
+            'initial_document' => 'sometimes|nullable|string|max:14',
         ]);
 
         $simulation->update($validated);

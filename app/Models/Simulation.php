@@ -31,7 +31,7 @@ class Simulation extends Model
         'p60',
         'installments_count',
         'installment_value',
-        'initial_cpf',
+        'initial_document',
         'opt_in',
     ];
 

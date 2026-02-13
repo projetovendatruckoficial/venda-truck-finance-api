@@ -47,7 +47,7 @@ return new class extends Migration
             $table->decimal('installment_value', 12, 2)->nullable();
             
             // Snapshot do CPF inicial (caso o cliente ainda não tenha sido cadastrado completo)
-            $table->string('initial_cpf', 14)->nullable();
+            $table->string('initial_document', 14)->nullable();
 
             $table->timestamps();
         });
