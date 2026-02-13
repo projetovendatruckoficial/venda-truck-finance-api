@@ -21,6 +21,13 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
+            'name' => 'Julian Cezar',
+            'email' => 'julian.fontana@hotmail.com',
+            'password' => 'juHH@006412',
+            'role' => 'admin',
+        ]);
+
+        User::create([
             'name' => 'Lojista',
             'email' => 'lojista@pontodocamonhao.com.br',
             'password' => 'Rm@150917',
