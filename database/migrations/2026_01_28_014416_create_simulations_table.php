@@ -48,8 +48,9 @@ return new class extends Migration
             
             // Snapshot do CPF inicial (caso o cliente ainda não tenha sido cadastrado completo)
             $table->string('initial_document', 14)->nullable();
+            $table->date('birth_date')->nullable();
 
-            $table->text('simulation_details')->nullable();
+            $table->json('simulation_details')->nullable();
 
             $table->timestamps();
         });

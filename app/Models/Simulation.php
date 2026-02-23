@@ -34,6 +34,7 @@ class Simulation extends Model
         'initial_document',
         'simulation_details',
         'opt_in',
+        'birth_date',
     ];
 
     protected $casts = [

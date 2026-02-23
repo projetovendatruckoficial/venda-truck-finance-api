@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\Admin\CustomerController;
 use App\Http\Controllers\Api\Admin\VehicleConsultationController;
 use App\Http\Controllers\Api\Admin\CpfConsultationController;
 use App\Http\Controllers\Api\Admin\CnpjConsultationController;
+use App\Http\Controllers\Api\Admin\UserController;
 
 
 
@@ -48,6 +49,7 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('simulation-types', SimulationTypeController::class);
         Route::apiResource('vehicle-types', VehicleTypeController::class);
         Route::apiResource('customers', CustomerController::class);
+        Route::apiResource('users', UserController::class);
 
         Route::post('vehicle/consult/credits', [VehicleConsultationController::class, 'checkCredits']);
         Route::post('cpf/consult/credits', [CpfConsultationController::class, 'checkCredits']);

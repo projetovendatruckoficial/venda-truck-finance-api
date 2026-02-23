@@ -18,6 +18,7 @@ class AuthController extends Controller
             'company_id' => 'nullable|numeric|exists:companies,id',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'nullable|string|max:255',
             'password' => 'required|string|confirmed|min:8',
             'role' => 'nullable|in:admin,lojista',
         ]);
