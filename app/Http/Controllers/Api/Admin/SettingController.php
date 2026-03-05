@@ -9,16 +9,16 @@ use Illuminate\Http\Request;
 class SettingController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display the settings.
      */
     public function index()
     {
-        $settings = Setting::all();
-        return response()->json($settings);
+        $setting = Setting::first();
+        return response()->json($setting);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store or Update the settings (Singleton pattern).
      */
     public function store(Request $request)
     {
@@ -26,8 +26,19 @@ class SettingController extends Controller
             'data' => 'required|array',
         ]);
 
-        $setting = Setting::create($validated);
+        $setting = Setting::first();
 
+        if ($setting) {
+            $mergedData = array_merge($setting->data ?? [], $validated['data']);
+            $validated['data'] = $this->formatData($mergedData);
+            
+            $setting->update($validated);
+            return response()->json($setting, 200);
+        }
+
+        $validated['data'] = $this->formatData($validated['data']);
+        $setting = Setting::create($validated);
+        
         return response()->json($setting, 201);
     }
 
@@ -48,9 +59,26 @@ class SettingController extends Controller
             'data' => 'sometimes|required|array',
         ]);
 
+        if (isset($validated['data'])) {
+            $mergedData = array_merge($setting->data ?? [], $validated['data']);
+            $validated['data'] = $this->formatData($mergedData);
+        }
+
         $setting->update($validated);
 
         return response()->json($setting);
+    }
+
+    /**
+     * Format specific fields in the data array.
+     */
+    private function formatData(array $data): array
+    {
+        if (isset($data['taxa_padrao'])) {
+            $data['taxa_padrao'] = number_format((float) $data['taxa_padrao'], 2, '.', '');
+        }
+
+        return $data;
     }
 
     /**
