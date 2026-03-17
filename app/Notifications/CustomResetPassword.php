@@ -36,6 +36,6 @@ class CustomResetPassword extends Notification
             ->action('Redefinir Senha', $url)
             ->line('Este link de redefinição de senha expirará em ' . config('auth.passwords.' . config('auth.defaults.passwords') . '.expire') . ' minutos.')
             ->line('Se você não solicitou a redefinição de senha, nenhuma ação adicional é necessária.')
-            ->salutation('Atenciosamente, Equipe Venda Truck Finance');
+            ->salutation('Atenciosamente, Equipe Venda Truck');
     }
 }
