@@ -4,6 +4,12 @@
       "Bash(ls \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\masterdba6\\\\projetos\\\\venda-truck-finance-api\")",
       "Bash(ls \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\masterdba6\\\\projetos\\\\venda-truck-finance-api\\\\resources\")",
       "Bash(ls \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\masterdba6\\\\projetos\\\\venda-truck-finance-api\\\\resources\\\\views\")"
+    ],
+    "additionalDirectories": [
+      "\\home\\masterdba6\\projetos\\venda-truck-finance-api\\app\\Services",
+      "\\\\wsl.localhost\\Ubuntu-24.04\\home\\masterdba6\\projetos\\venda-truck-finance-api\\app\\Services",
+      "\\home\\masterdba6\\projetos\\venda-truck-finance-api\\app\\Observers",
+      "\\\\wsl.localhost\\Ubuntu-24.04\\home\\masterdba6\\projetos\\venda-truck-finance-api\\app\\Observers"
     ]
   }
 }

@@ -123,4 +123,15 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Webhook Configuration
+    |--------------------------------------------------------------------------
+    |
+    | N8N Webhook URL for simulation events
+    |
+    */
+
+    'webhook_n8n' => env('WEBHOOK_N8N'),
+
 ];
