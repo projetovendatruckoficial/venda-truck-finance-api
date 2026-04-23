@@ -32,10 +32,10 @@ class ApiBrasilService
                 'Authorization' => "Bearer {$this->token}",
                 'User-Agent' => 'Laravel/10.0', // Simula um User-Agent compatível
             ])->post("{$this->baseUrl}/consulta/veiculos/credits", [
-                'tipo' => $tipo,
-                'placa' => $placa,
-                'homolog' => $homolog,
-            ]);
+                        'tipo' => $tipo,
+                        'placa' => $placa,
+                        'homolog' => $homolog,
+                    ]);
 
             Log::info('ApiBrasil Request', [
                 'endpoint' => "{$this->baseUrl}/consulta/veiculos/credits",
@@ -51,7 +51,7 @@ class ApiBrasilService
                     'body' => $response->body(),
                     'placa' => $placa
                 ]);
-                
+
                 return [
                     'success' => false,
                     'message' => 'Falha ao consultar ApiBrasil.',
@@ -96,10 +96,10 @@ class ApiBrasilService
                 'Authorization' => "Bearer {$this->token}",
                 'User-Agent' => 'Laravel/10.0',
             ])->post("{$this->baseUrl}/consulta/cpf/credits", [
-                'tipo' => $tipo,
-                'cpf' => $cpf,
-                'homolog' => $homolog,
-            ]);
+                        'tipo' => $tipo,
+                        'cpf' => $cpf,
+                        'homolog' => $homolog,
+                    ]);
 
             Log::info('ApiBrasil CPF Request', [
                 'endpoint' => "{$this->baseUrl}/consulta/cpf/credits",
@@ -115,7 +115,7 @@ class ApiBrasilService
                     'body' => $response->body(),
                     'cpf' => $cpf
                 ]);
-                
+
                 return [
                     'success' => false,
                     'message' => 'Falha ao consultar ApiBrasil.',
@@ -151,7 +151,7 @@ class ApiBrasilService
      * @param bool $homolog
      * @return array
      */
-    public function checkCnpjCredits(string $cnpj, string $tipo = 'serasa-real-time', bool $homolog = true): array
+    public function checkCnpjCredits(string $cnpj, string $tipo = 'quod-restricao-pj', bool $homolog = true): array
     {
         try {
             $response = Http::withHeaders([
@@ -159,14 +159,14 @@ class ApiBrasilService
                 'Accept' => 'application/json',
                 'Authorization' => "Bearer {$this->token}",
                 'User-Agent' => 'Laravel/10.0',
-            ])->post("{$this->baseUrl}/consulta/cnpj/credits", [
-                'tipo' => $tipo,
-                'cnpj' => $cnpj,
-                'homolog' => $homolog,
-            ]);
+            ])->post("{$this->baseUrl}/quod/cnpj/credits", [
+                        'tipo' => $tipo,
+                        'cnpj' => $cnpj,
+                        'homolog' => $homolog,
+                    ]);
 
             Log::info('ApiBrasil CNPJ Request', [
-                'endpoint' => "{$this->baseUrl}/consulta/cnpj/credits",
+                'endpoint' => "{$this->baseUrl}/quod/cnpj/credits",
                 'payload' => compact('tipo', 'cnpj', 'homolog'),
                 'response_status' => $response->status(),
                 'response_body' => $response->json(),
@@ -178,7 +178,7 @@ class ApiBrasilService
                     'body' => $response->body(),
                     'cnpj' => $cnpj
                 ]);
-                
+
                 return [
                     'success' => false,
                     'message' => 'Falha ao consultar ApiBrasil.',
